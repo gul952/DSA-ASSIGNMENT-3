@@ -91,9 +91,7 @@ double getRunTime(void (*sortFunc)(vector<Record>&), vector<Record> data) {
 }
 
 int main() {
-    // ---------------------------------------------------------
-    // PHASE 1: VERIFICATION & STABILITY CHECK
-    // ---------------------------------------------------------
+
     cout << "==========================================================" << endl;
     cout << "PHASE 1: VERIFICATION & STABILITY CHECKS (n=10000)" << endl;
     cout << "==========================================================" << endl;
@@ -117,9 +115,6 @@ int main() {
 
     cout << endl;
 
-    // ---------------------------------------------------------
-    // PHASE 2: EXPERIMENTAL DATA GENERATION (For Tables 2, 3, 4)
-    // ---------------------------------------------------------
     cout << "==========================================================" << endl;
     cout << "PHASE 2: GENERATING DATA FOR REPORT TABLES" << endl;
     cout << "==========================================================" << endl;
@@ -131,7 +126,6 @@ int main() {
     algos["Bucket Sort"] = bucketSort;
     algos["Pigeonhole Sort"] = pigeonholeSort;
 
-    // --- Experiment 1: Scaling (Table 2) ---
     // Vary N, keep K approx N
     cout << "\n--- TABLE 2: SCALING (Copy to CSV/Excel) ---\n";
     cout << "N,Algorithm,Time_ms\n";
@@ -146,7 +140,6 @@ int main() {
         }
     }
 
-    // --- Experiment 2: Range Sensitivity (Table 3) ---
     // Fixed N, Vary K
     cout << "\n--- TABLE 3: RANGE SENSITIVITY (Copy to CSV/Excel) ---\n";
     cout << "K,Algorithm,Time_ms\n";
@@ -159,7 +152,6 @@ int main() {
         cout << currK << ",Pigeonhole Sort," << getRunTime(pigeonholeSort, generateData(n_range, currK, RANDOM)) << endl;
     }
 
-    // --- Experiment 3: Distributions (Table 4) ---
     // Fixed N, Fixed K, Vary Data Type
     cout << "\n--- TABLE 4: DISTRIBUTIONS (Copy to CSV/Excel) ---\n";
     cout << "Distribution,Algorithm,Time_ms\n";
